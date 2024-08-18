@@ -18,6 +18,19 @@ class HabitacionController extends Controller
     }
     */
 
+    public function obtenerHabitaciones(){
+
+        $habitacion = new Client([
+            'base_uri' => 'http://localhost:8080/habitacion/',
+            'timeout'  => 2.0,
+        ]);
+
+        $response = $habitacion->request('GET', 'ver');
+        $habitacionArray = json_decode($response->getBody()->getContents(), true);
+
+        return view('components/obtenerhabitacion_admin', compact('habitacionArray'));
+
+    }
     public function crearHabitacion(Request $request)
     {
         $cdg_habitacion = $request->input('cdg_habitacion');
