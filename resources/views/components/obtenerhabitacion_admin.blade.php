@@ -76,6 +76,7 @@
                                     <th scope="col">Tipo</th>
                                     <th scope="col">Descripción</th>
                                     <th scope="col">Piso</th>
+                                    <th scope="col">Estado</th>
                                     <th scope="col">Precio</th>
                                     <th scope="col">Opciones</th>
                                 </tr>
@@ -89,6 +90,7 @@
                                         <td> {{ $habitacion['tipoHabitacion']['tipo'] }}</td>
                                         <td> {{ $habitacion['descripcion'] }} </td>
                                         <td> {{ $habitacion['piso'] }} </td>
+                                        <td> {{ $habitacion['estadoHabitacion']['estado'] }}</td>
                                         <td> {{ $habitacion['precio_noche'] }} </td>
                                         <td>
                                             <a href="{{ route('editar.habitacion.admin', ['id' => $habitacion['id']]) }}"

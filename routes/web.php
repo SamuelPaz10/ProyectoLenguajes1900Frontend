@@ -123,10 +123,10 @@ Route::get('/admin/crear/habitaciones', [HabitacionController::class, 'crearHabi
 Route::post('/admin/guardar/habitaciones', [HabitacionController::class, 'guardarHabitacion']) -> name('guardar.habitacion.admin');
 
 // GET
-Route::get('/admin/editar/habitaciones', [HabitacionController::class, 'editarHabitacion']) -> name('editar.habitacion.admin');
+Route::get('/admin/editar/habitaciones/{id}', [HabitacionController::class, 'editarHabitacion']) -> name('editar.habitacion.admin');
 
 // PUT
-Route::put('/admin/guardar/edicion/habitaciones', [HabitacionController::class, 'guardarEdicionHabitacion']) -> name('guardaredicion.habitacion.admin');
+Route::put('/admin/guardar/edicion/habitaciones/{id}', [HabitacionController::class, 'guardarEdicionHabitacion']) -> name('guardaredicion.habitacion.admin');
 
 // DELETE
 Route::get('/admin/eliminar/habitacion', function () {

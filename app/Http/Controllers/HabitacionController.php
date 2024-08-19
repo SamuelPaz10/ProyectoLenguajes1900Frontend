@@ -68,6 +68,7 @@ class HabitacionController extends Controller
             }
     }
 
+    // Editar habitacion por ID
     public function editarHabitacion($id)
     {
         $client = new Client();
@@ -76,7 +77,7 @@ class HabitacionController extends Controller
              $habitacion =  json_decode($response->getBody(), true);
  
              if ($response->getStatusCode() == 200) {
-                 return view('editarHabitacion_admin', ['habitacion' => $habitacion]);
+                 return view('editarhabitacion_admin', ['habitacion' => $habitacion]);
              }
          } catch (\Exception $ex) {
              return "Error al editar cliente " . $ex;
