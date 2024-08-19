@@ -18,44 +18,54 @@ class HabitacionController extends Controller
     }
     */
 
+
+    // ADMIN - Obtener todas las habitaciones
     public function obtenerHabitaciones(){
 
-        $habitacion = new Client([
-            'base_uri' => 'http://localhost:8080/habitacion/',
-            'timeout'  => 2.0,
-        ]);
-
-        $response = $habitacion->request('GET', 'ver');
-        $habitacionArray = json_decode($response->getBody()->getContents(), true);
-
-        return view('components/obtenerhabitacion_admin', compact('habitacionArray'));
-
+        $habitacion = new Client();
+        try{
+            $responseHabitaciones = $habitacion->request('GET', 'http://localhost:8080/habitacion/ver');
+            $habitacionesArray = json_decode($responseHabitaciones->getBody(), true);
+        
+            return view('components/obtenerhabitacion_admin', compact('habitacionesArray'));
+        } catch (\Exception $ex) {
+            return $ex;
+        }
     }
-    public function crearHabitacion(Request $request)
+
+
+    // ADMIN - Crear habitación
+    // Formulario
+    public function crearHabitacion()
     {
-        $cdg_habitacion = $request->input('cdg_habitacion');
+        return view('components/crearHabitacion_admin');
+    }
+
+    // Guardar habitación
+    public function guardarHabitacion(Request $request)
+    {
         $numero = $request->input('numero');
+        $tipo = $request->input('tipo');
+        $descripcion = $request->input('descripcion');
         $piso = $request->input('piso');
         $precio_noche = $request->input('precio_noche');
-        $tipo = $request->input('tipo');
         $estado = $request->input('estado');
-        $descripcion = $request->input('descripcion');
-        $client = new Client();
+        
+        $habitacion = new Client();
         try {
-            $response = $client->request('POST', 'http://localhost:8080/api/habitacion/crear', [
+            $response = $habitacion->request('POST', 'http://localhost:8080/habitacion/crear', [
                 'Content-Type' => 'application/json',
                 'json' => [
-                    'cdg_habitacion' => $cdg_habitacion,
                     'numero' => $numero,
+                    'tipo'=>$tipo,
+                    'descripcion' => $descripcion,
                     'piso'=>$piso,
                     'precio_noche' => $precio_noche,
-                    'tipo'=>$tipo,
-                    'estado' => $estado,
-                    'descripcion' => $descripcion
+                    'estado' => $estado
                 ],
             ]);
             if ($response->getStatusCode() == 200) {
-                return redirect()->route('crearHabitacion');
+                return redirect()->route('ver.habitaciones.admin');
             }
         } catch (\Exception $e) {
             return response('Error: ' . $e->getMessage(), 500);

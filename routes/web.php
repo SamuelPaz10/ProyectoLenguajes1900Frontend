@@ -117,21 +117,25 @@ Route::get('/admin/eliminar/reserva', function () {
 Route::get('/admin/ver/habitaciones', [HabitacionController::class, 'obtenerHabitaciones']) -> name('ver.habitaciones.admin');
 
 // GET
-Route::get('/admin/crear/habitaciones', function () {
-    return view('components/crearhabitacion_admin');
-}) -> name('crear.habitacion.admin');
+Route::get('/admin/crear/habitaciones', [HabitacionController::class, 'crearHabitacion']) -> name('crear.habitacion.admin');
 
 // POST
-Route::get('/admin/guardar/habitaciones', function () {
-    return view('components/obtenerhabitacion_admin');
-}) -> name('guardar.habitacion.admin');
+Route::post('/admin/guardar/habitaciones', [HabitacionController::class, 'guardarHabitacion']) -> name('guardar.habitacion.admin');
 
 // GET
 Route::get('/admin/editar/habitaciones', function () {
     return view('components/editarhabitacion_admin');
 }) -> name('editar.habitacion.admin');
 
+// PUT
+Route::get('/admin/guardar/edicion/habitaciones', function () {
+    return view('components/obtenerhabitacion_admin');
+}) -> name('guardaredicion.habitacion.admin');
 
+// DELETE
+Route::get('/admin/eliminar/habitacion', function () {
+    return view('components/obtenerhabitacion_admin');
+}) -> name('eliminar.habitacion.admin');
 
 
 // ***USUARIOS***
@@ -163,12 +167,3 @@ Route::get('/admin/eliminar/usuario', function () {
     return view('components/obtenerusuario_admin');
 }) -> name('eliminar.usuario.admin');
 
-// PUT
-Route::get('/admin/guardar/edicion/habitaciones', function () {
-    return view('components/obtenerhabitacion_admin');
-}) -> name('guardaredicion.habitacion.admin');
-
-// DELETE
-Route::get('/admin/eliminar/habitacion', function () {
-    return view('components/obtenerhabitacion_admin');
-}) -> name('eliminar.habitacion.admin');

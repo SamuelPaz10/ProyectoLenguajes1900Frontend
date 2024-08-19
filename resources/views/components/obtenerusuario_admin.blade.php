@@ -88,7 +88,7 @@
                                         <td> {{ $usuario['nombre'] }} </td>
                                         <td> {{ $usuario['apellido'] }} </td>
                                         <td> {{ $usuario['telefono'] }} </td>
-                                        <td> {{ $usuario['contrasena'] }} </td>
+                                        <td> {{ $usuario['email'] }} </td>
                                         <td> {{ $usuario['tipo'] }} </td>
                                         <td>
                                             <a href="{{ route('editar.usuario.admin') }}"
@@ -99,7 +99,6 @@
                                         </td>
                                     </tr>
                                 @endforeach
-
 
                             </tbody>
                         </table>

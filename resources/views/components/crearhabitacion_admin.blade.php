@@ -60,78 +60,79 @@
                 <div class="divider-custom-line"></div>
             </div>
 
-            <form action=" {{ route('guardar.habitacion.admin') }} " method="GET">
-                <main class="flex-shrink-0">
 
+            <main class="flex-shrink-0">
 
-                    <div class="container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
 
-                        <div class="row">
-                            <div class="col-4">
+                        </div>
 
-                            </div>
-
-                            <div style="background-color: rgba(179, 238, 218, 0.63); border-radius:20px; padding:20px"
-                                class="col-4">
+                        <div style="background-color: rgba(179, 238, 218, 0.63); border-radius:20px; padding:20px"
+                            class="col-4">
+                            <form action=" {{ route('guardar.habitacion.admin') }} " method="POST">
+                                @csrf
                                 <div class="col-12">
                                     <label for="clave" class="form-label">N° Habitación</label>
-                                    <input type="text" class="form-control" id="clave" name="clave">
+                                    <input type="text" class="form-control" id="numero" name="numero">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="nombre" class="form-label">Tipo</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <input type="number" min="1" class="form-control" id="tipo" name="tipo">
+                                    {{-- <select class="form-select" aria-label="Default select example" name="tipo">
                                         <option value="1">Suite</option>
                                         <option value="2">Doble</option>
                                         <option value="3">Sencilla</option>
-                                    </select>
+                                    </select> --}}
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="descripcion" class="form-label">Descripción</label>
-                                    <input type="text" class="form-control" id="fecha_nacimiento"
-                                        name="fecha_nacimiento">
+                                    <input type="text" class="form-control" id="descripcion" name="descripcion">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="piso" class="form-label">Piso</label>
-                                    <input type="text" class="form-control" id="telefono" name="telefono"
-                                        readonly>
+                                    <input type="number" min="1" class="form-control" id="piso" name="piso">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
-                                    <label for="precio" class="form-label">Precio</label>
-                                    <input type="text" class="form-control" id="correo_electronico"
-                                        name="correo_electronico">
+                                    <label for="precio" class="form-label">Precio noche</label>
+                                    <input type="text" class="form-control" id="precio_noche"
+                                        name="precio_noche">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="estado" class="form-label">Estado</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <input type="number" min="1" class="form-control" id="estado" name="estado">
+                                    {{-- <select class="form-select" aria-label="Default select example" name="estado">
                                         <option value="1">Disponible</option>
                                         <option value="2">Ocupado</option>
                                         <option value="3">En mantenimiento</option>
-                                      </select>
+                                    </select> --}}
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-success btn-sm">AGREGAR</button>
-                            </div>
+                            </form>
+                        </div>
 
-                            <div class="col-4">
-
-                            </div>
+                        <div class="col-4">
 
                         </div>
-                        
+
                     </div>
 
-                </main>
-            </form>
+                </div>
+
+            </main>
+
 
 
 

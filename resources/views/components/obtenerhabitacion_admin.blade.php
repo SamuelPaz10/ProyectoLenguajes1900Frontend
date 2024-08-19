@@ -66,7 +66,7 @@
                 <main class="flex-shrink-0">
                     <div class="container">
 
-                        <a href="{{route('crear.habitacion.admin')}}" class="btn btn-success">Agregar habitación</a>
+                        <a href="{{ route('crear.habitacion.admin') }}" class="btn btn-success">Agregar habitación</a>
 
                         <table class="table table-hover table-bordered my-3" aria-describedby="titulo">
                             <thead class="table-dark">
@@ -82,21 +82,23 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>Suite</td>
-                                    <td>Habitación de lujo</td>
-                                    <td>2</td>
-                                    <td>1300</td>
-                                    <td>
-                                        <a href="{{route('editar.habitacion.admin')}}" class="btn btn-warning btn-sm me-2">Editar</a>
-    
-                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#eliminaModal" data-bs-id="1">Eliminar</button>
-                                    </td>
-                                </tr>
+                                @foreach ($habitacionesArray as $habitacion)
+                                    <tr>
+                                        <td> {{ $habitacion['id'] }} </td>
+                                        <td> {{ $habitacion['numero'] }} </td>
+                                        <td> {{ $habitacion['tipoHabitacion']['tipo'] }}</td>
+                                        <td> {{ $habitacion['descripcion'] }} </td>
+                                        <td> {{ $habitacion['piso'] }} </td>
+                                        <td> {{ $habitacion['precio_noche'] }} </td>
+                                        <td>
+                                            <a href="{{ route('editar.habitacion.admin') }}"
+                                                class="btn btn-warning btn-sm me-2">Editar</a>
 
+                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                data-bs-target="#eliminaModal" data-bs-id="1">Eliminar</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -151,7 +153,8 @@
     </div>
 
     {{-- MODAL --}}
-    <div class="modal fade" id="eliminaModal" tabindex="-1" aria-labelledby="eliminaModalLabel" aria-hidden="true">
+    <div class="modal fade" id="eliminaModal" tabindex="-1" aria-labelledby="eliminaModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -173,8 +176,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
