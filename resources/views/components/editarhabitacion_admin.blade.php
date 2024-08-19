@@ -71,55 +71,54 @@
 
                         <div style="background-color: rgba(179, 238, 218, 0.63); border-radius:20px; padding:20px"
                             class="col-4">
-                            <form action=" {{ route('guardaredicion.habitacion.admin') }} " method="PUT">
+                            <form action=" {{ route('guardaredicion.habitacion.admin', ['id' => $habitacion['id']]) }} " method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="col-12">
                                     <label for="clave" class="form-label">Código Habitación</label>
-                                    <h3 class="text-white">Editar "{{ $habitacion['id'] }}"</h3>
+                                    <h6>Editar: {{ $habitacion['id'] }}</h6>
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="clave" class="form-label">N° Habitación</label>
                                     <input type="text" name="numero" value="{{ $habitacion['numero'] }}"
-                                        class="form-control rounded-pill mx-3">
+                                        class="form-control">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="nombre" class="form-label">Tipo</label>
-                                    <input type="text" name="tipo" value="{{ $habitacion['tipo'] }}"
-                                        class="form-control rounded-pill mx-3">
+                                    <input type="text" name="tipo"
+                                        value="{{ $habitacion['tipoHabitacion']['tipo'] }}" class="form-control">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="descripcion" class="form-label">Descripción</label>
                                     <input type="text" name="descripcion" value="{{ $habitacion['descripcion'] }}"
-                                        class="form-control rounded-pill mx-3">
+                                        class="form-control">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="piso" class="form-label">Piso</label>
                                     <input type="text" name="piso" value="{{ $habitacion['piso'] }}"
-                                        class="form-control rounded-pill mx-3">
+                                        class="form-control">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="precio" class="form-label">Precio Noche</label>
                                     <input type="text" name="precio_noche"
-                                        value="{{ $habitacion['precio_noche'] }}"
-                                        class="form-control rounded-pill mx-3">
+                                        value="{{ $habitacion['precio_noche'] }}" class="form-control">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="estado" class="form-label">Estado</label>
-                                    <input type="text" name="estado" value="{{ $habitacion['estado'] }}"
-                                        class="form-control rounded-pill mx-3">
+                                    <input type="text" name="estado"
+                                        value="{{ $habitacion['estadoHabitacion']['estado'] }}" class="form-control">
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-success btn-sm">ACTUALIZAR</button>

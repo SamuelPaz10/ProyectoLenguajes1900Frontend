@@ -74,13 +74,13 @@ class HabitacionController extends Controller
         $client = new Client();
          try {
              $response = $client->request('GET', 'http://localhost:8080/habitacion/buscar/' . $id);
-             $habitacion =  json_decode($response->getBody(), true);
+             $habitacion = json_decode($response->getBody(), true);
  
              if ($response->getStatusCode() == 200) {
-                 return view('editarhabitacion_admin', ['habitacion' => $habitacion]);
+                 return view('components/editarhabitacion_admin', ['habitacion' => $habitacion]);
              }
          } catch (\Exception $ex) {
-             return "Error al editar cliente " . $ex;
+             return "Error al editar cliente " . $ex->getMessage();
          }
     }
 

@@ -61,8 +61,6 @@
                 <div class="divider-custom-line"></div>
             </div>
 
-
-            <form action="{{ route('guardar.reserva') }} " method="POST">
                 <main class="flex-shrink-0">
                     <div class="container">
 
@@ -105,7 +103,6 @@
                         </table>
                     </div>
                 </main>
-            </form>
 
 
         </div>
