@@ -164,7 +164,7 @@
                     <p>¿Desea eliminar la habitación?</p>
                 </div>
                 <div class="modal-footer">
-                    <form id="form-elimina" action=" {{ route('eliminar.habitacion.admin') }} " method="GET">
+                    <form id="form-elimina" action=" {{ route('eliminar.habitacion.admin', ['id' => $habitacion['id']]) }} " method="GET">
                         <input type="hidden" name="_method" value="delete">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-danger">Eliminar</button>

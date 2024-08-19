@@ -65,15 +65,13 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-4">
-
-                        </div>
+                        <div class="col-4"></div>
 
                         <div style="background-color: rgba(179, 238, 218, 0.63); border-radius:20px; padding:20px"
                             class="col-4">
-                            <form action=" {{ route('guardaredicion.habitacion.admin', ['id' => $habitacion['id']]) }} " method="POST">
+                            <form action="{{ route('guardaredicion.habitacion.admin', ['id' => $habitacion['id']]) }}" method="POST">
                                 @csrf
-                                @method('PUT')
+                                {{-- @method('PUT') --}}
                                 <div class="col-12">
                                     <label for="clave" class="form-label">Código Habitación</label>
                                     <h6>Editar: {{ $habitacion['id'] }}</h6>
@@ -121,21 +119,16 @@
                                         value="{{ $habitacion['estadoHabitacion']['estado'] }}" class="form-control">
                                 </div>
                                 <br>
-                                <button type="submit" class="btn btn-success btn-sm">ACTUALIZAR</button>
+                                {{-- <button type="submit" class="btn btn-success btn-sm">ACTUALIZAR</button> --}}
+                                <input type="submit" value="Actualizar" class="btn btn-success rounded-pill w-100 m-3">
                             </form>
                         </div>
 
-                        <div class="col-4">
-
-                        </div>
-
+                        <div class="col-4"></div>
                     </div>
-
                 </div>
 
             </main>
-
-
 
         </div>
     </section>

@@ -115,4 +115,18 @@ class HabitacionController extends Controller
             return "Error al actualizar: " . $ex;
         }
     }
+
+    public function eliminarHabitacion($id)
+     {
+         $client = new Client();
+         try {
+             $response = $client->delete('http://localhost:8080/habitacion/borrar/' . $id);
+ 
+             if ($response->getStatusCode() == 200) {
+                 return "Habitacion Eliminada". redirect()->route('obtenerTodosHabitaciones');
+             }
+         } catch (\Exception $ex) {
+             return "Error al eliminar habitacion " . $ex;
+         }
+     }
 }

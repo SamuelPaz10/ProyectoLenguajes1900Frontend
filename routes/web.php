@@ -129,9 +129,7 @@ Route::get('/admin/editar/habitaciones/{id}', [HabitacionController::class, 'edi
 Route::post('/admin/guardar/edicion/habitaciones/{id}', [HabitacionController::class, 'guardarEdicionHabitacion']) -> name('guardaredicion.habitacion.admin');
 
 // DELETE
-Route::get('/admin/eliminar/habitacion', function () {
-    return view('components/obtenerhabitacion_admin');
-}) -> name('eliminar.habitacion.admin');
+Route::get('/admin/eliminar/habitacion/{id}', [HabitacionController::class, 'eliminarHabitacion']) -> name('eliminar.habitacion.admin');
 
 
 // ***USUARIOS***
