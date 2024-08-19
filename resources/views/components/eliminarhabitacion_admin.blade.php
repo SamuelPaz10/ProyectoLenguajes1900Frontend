@@ -54,9 +54,14 @@
                 <h3 class="text-white">Eliminar Habitación</h3>
             </div>
             <div class="card-body text-center p-5">
-                <p class="fs-3 text-secondary">¿Está seguro que desea eliminar la Habitación: {{ $habitacion['id'] }}?</p>
-                <a href="{{ route('ver.habitaciones.admin') }}" class="btn btn-outline-primary me-2">Volver</a>
-                <a href="{{ route('confirmareliminar.habitacion.admin', ['id'=>$habitacion['id']]) }}" class="btn btn-danger">Eliminar</a>
+                <form action="{{ route('confirmareliminar.habitacion.admin', ['id' => $habitacion['id']]) }}"
+                    method="DELETE">
+                    @csrf
+                    <p class="fs-3 text-secondary">¿Está seguro que desea eliminar la Habitación:
+                        {{ $habitacion['id'] }}?</p>
+                    <a href="{{ route('ver.habitaciones.admin') }}" class="btn btn-outline-primary me-2">Volver</a>
+                    <input type="submit" value="Eliminar" class="btn btn-danger">
+                </form>
             </div>
         </div>
     </div>
