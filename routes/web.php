@@ -135,32 +135,26 @@ Route::get('/admin/eliminar/habitacion/{id}', [HabitacionController::class, 'eli
 Route::post('/admin/confirmar/eliminar/habitacion/{id}', [HabitacionController::class, 'confirmarEliminarHabitacion']) -> name('confirmareliminar.habitacion.admin');
 
 
+
 // ***USUARIOS***
 // GET
 Route::get('/admin/ver/usuarios', [UsuarioController::class, 'obtenerUsuarios']) -> name('ver.usuarios.admin');
 
 // GET
-Route::get('/admin/crear/usuario', function () {
-    return view('components/crearusuario_admin');
-}) -> name('crear.usuario.admin');
+Route::get('/admin/crear/usuario', [UsuarioController::class, 'crearUsuario']) -> name('crear.usuario.admin');
 
 // POST
-Route::get('/admin/guardar/usuario', function () {
-    return view('components/obtenerusuario_admin');
-}) -> name('guardar.usuario.admin');
+Route::post('/admin/guardar/usuario', [UsuarioController::class, 'guardarUsuario']) -> name('guardar.usuario.admin');
 
 // GET
-Route::get('/admin/editar/usuario', function () {
-    return view('components/editarusuario_admin');
-}) -> name('editar.usuario.admin');
+Route::get('/admin/editar/usuario/{dni}', [UsuarioController::class, 'editarUsuario']) -> name('editar.usuario.admin');
 
 // PUT
-Route::get('/admin/guardar/edicion/usuario', function () {
-    return view('components/obtenerusuario_admin');
-}) -> name('guardaredicion.usuario.admin');
+Route::post('/admin/guardar/edicion/usuario/{dni}', [UsuarioController::class, 'guardarEdicionUsuario']) -> name('guardaredicion.usuario.admin');
+
+// GET
+Route::get('/admin/eliminar/usuario/{dni}', [UsuarioController::class, 'eliminarUsuario']) -> name('eliminar.usuario.admin');
 
 // DELETE
-Route::get('/admin/eliminar/usuario', function () {
-    return view('components/obtenerusuario_admin');
-}) -> name('eliminar.usuario.admin');
+Route::get('/admin/confirmar/eliminar/usuario/{dni}', [UsuarioController::class, 'confirmarEliminarUsuario']) -> name('confirmareliminar.usuario.admin');
 

@@ -55,7 +55,7 @@
             </div>
             <div class="card-body text-center p-5">
                 <form action="{{ route('confirmareliminar.habitacion.admin', ['id' => $habitacion['id']]) }}"
-                    method="DELETE">
+                    method="POST">
                     @csrf
                     <p class="fs-3 text-secondary">¿Está seguro que desea eliminar la Habitación:
                         {{ $habitacion['id'] }}?</p>

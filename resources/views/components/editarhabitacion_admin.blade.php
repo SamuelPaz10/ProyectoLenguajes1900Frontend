@@ -120,7 +120,7 @@
                                 </div>
                                 <br>
                                 {{-- <button type="submit" class="btn btn-success btn-sm">ACTUALIZAR</button> --}}
-                                <input type="submit" value="Actualizar" class="btn btn-success rounded-pill w-100 m-3">
+                                <input type="submit" value="Actualizar" class="btn btn-success">
                             </form>
                         </div>
 

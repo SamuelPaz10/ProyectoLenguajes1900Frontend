@@ -60,69 +60,69 @@
                 <div class="divider-custom-line"></div>
             </div>
 
-            <form action=" {{ route('guardaredicion.usuario.admin') }} " method="GET">
-                <main class="flex-shrink-0">
-                    <div class="container">
 
-                        <div class="row">
-                            <div class="col-4">
+            <main class="flex-shrink-0">
+                <div class="container">
 
-                            </div>
+                    <div class="row">
+                        <div class="col-4">
 
-                            <div style="background-color: rgba(179, 238, 218, 0.63); border-radius:20px; padding:20px"
-                                class="col-4">
+                        </div>
+
+                        <div style="background-color: rgba(179, 238, 218, 0.63); border-radius:20px; padding:20px"
+                            class="col-4">
+                            <form action=" {{ route('guardaredicion.usuario.admin',['dni'=>$cliente['dni']]) }} " method="POST">
+                                @csrf
                                 <div class="mb-3">
                                     <label for="" class="form-label">DNI:</label>
-                                    <input type="text" class="form-control" id="exampleInputDNI">
+                                    <h6>Editar: {{ $cliente['dni'] }}</h6>
                                 </div>
-        
+
                                 <div class="mb-3">
                                     <label for="" class="form-label">Nombre:</label>
-                                    <input type="text" class="form-control" id="exampleInputNombre">
+                                    <input type="text" value="{{$cliente['nombre']}}" name="nombre" class="form-control" id="nombre">
                                 </div>
-        
+
                                 <div class="mb-3">
                                     <label for="" class="form-label">Apellido:</label>
-                                    <input type="text" class="form-control" id="exampleInputApellido">
+                                    <input type="text" value="{{$cliente['apellido']}}" name="apellido" class="form-control" id="apellido">
                                 </div>
-        
+
                                 <div class="mb-3">
                                     <label for="" class="form-label">Teléfono:</label>
-                                    <input type="text" class="form-control" id="exampleInputTelefono">
+                                    <input type="text" value="{{$cliente['telefono']}}" name="telefono" class="form-control" id="telefono">
                                 </div>
-        
+
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Correo:</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                    <input type="email" value="{{$cliente['email']}}" name="email" class="form-control" id="email"
                                         aria-describedby="emailHelp" placeholder="abc@example.com">
                                 </div>
-        
+
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <input type="password" value="{{$cliente['contrasena']}}" name="contrasena" class="form-control" id="contrasena">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Tipo:</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="1">Usuario</option>
-                                        <option value="2">Administrador</option>
-                                    </select>
+                                    <input type="text" value="{{$cliente['tipo']}}" name="tipo" placeholder="tipo" class="form-control">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
-                            </div>
+                            </form>
+                        </div>
 
-                            <div class="col-4">
-
-                            </div>
+                        <div class="col-4">
 
                         </div>
-                        
+
                     </div>
 
-                </main>
-            </form>
+                </div>
+
+            </main>
+
 
 
 
