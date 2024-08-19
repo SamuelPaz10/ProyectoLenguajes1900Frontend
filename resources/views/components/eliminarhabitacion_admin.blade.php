@@ -48,65 +48,18 @@
     </nav>
 
 
-    <!-- Portfolio Section-->
-    <section style="margin-top: 100px" class="page-section portfolio" id="portfolio">
-        <div class="container">
-            <!-- Portfolio Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">HABITACIONES</h2>
-
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
+    <div style="margin-top: 150px" class="container p-0">
+        <div class="card m-0">
+            <div class="card-header bg-primary">
+                <h3 class="text-white">Eliminar Habitación</h3>
             </div>
-
-            <main class="flex-shrink-0">
-                <div class="container">
-
-                    <a href="{{ route('crear.habitacion.admin') }}" class="btn btn-success">Agregar habitación</a>
-
-                    <table class="table table-hover table-bordered my-3" aria-describedby="titulo">
-                        <thead class="table-dark">
-                            <tr>
-                                <th scope="col">Código de Habitación</th>
-                                <th scope="col">Número de Habitación</th>
-                                <th scope="col">Tipo</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Piso</th>
-                                <th scope="col">Estado</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Opciones</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach ($habitacionesArray as $habitacion)
-                                <tr>
-                                    <td> {{ $habitacion['id'] }} </td>
-                                    <td> {{ $habitacion['numero'] }} </td>
-                                    <td> {{ $habitacion['tipoHabitacion']['tipo'] }}</td>
-                                    <td> {{ $habitacion['descripcion'] }} </td>
-                                    <td> {{ $habitacion['piso'] }} </td>
-                                    <td> {{ $habitacion['estadoHabitacion']['estado'] }}</td>
-                                    <td> {{ $habitacion['precio_noche'] }} </td>
-                                    <td>
-                                        <a href="{{ route('editar.habitacion.admin', ['id' => $habitacion['id']]) }}"
-                                            class="btn btn-warning btn-sm me-2">Editar</a>
-
-                                        <a href="{{ route('eliminar.habitacion.admin', ['id' => $habitacion['id']]) }} "
-                                            class="btn rounded-pill btn-danger">Eliminar</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </main>
-
-
+            <div class="card-body text-center p-5">
+                <p class="fs-3 text-secondary">¿Está seguro que desea eliminar la Habitación: {{ $habitacion['id'] }}?</p>
+                <a href="{{ route('ver.habitaciones.admin') }}" class="btn btn-outline-primary me-2">Volver</a>
+                <a href="{{ route('confirmareliminar.habitacion.admin', ['id'=>$habitacion['id']]) }}" class="btn btn-danger">Eliminar</a>
+            </div>
         </div>
-    </section>
+    </div>
 
 
     <!-- Footer-->
@@ -149,31 +102,6 @@
     <!-- Copyright Section-->
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
-    </div>
-
-    {{-- MODAL --}}
-    <div class="modal fade" id="eliminaModal" tabindex="-1" aria-labelledby="eliminaModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="eliminaModalLabel">Aviso</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>¿Desea eliminar la habitación?</p>
-                </div>
-                <div class="modal-footer">
-                    <form id="form-elimina"
-                        action=" {{ route('eliminar.habitacion.admin', ['id' => $habitacion['id']]) }} "
-                        method="GET">
-                        <input type="hidden" name="_method" value="delete">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

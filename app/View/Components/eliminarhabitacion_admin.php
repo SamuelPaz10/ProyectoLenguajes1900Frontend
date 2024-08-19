@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class eliminarhabitacion extends Component
+class eliminarhabitacion_admin extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class eliminarhabitacion extends Component
      */
     public function render()
     {
-        return view('components.eliminarhabitacion');
+        return view('components.eliminarhabitacion_admin');
     }
 }

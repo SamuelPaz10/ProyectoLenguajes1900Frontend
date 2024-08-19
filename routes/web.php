@@ -128,8 +128,11 @@ Route::get('/admin/editar/habitaciones/{id}', [HabitacionController::class, 'edi
 // PUT
 Route::post('/admin/guardar/edicion/habitaciones/{id}', [HabitacionController::class, 'guardarEdicionHabitacion']) -> name('guardaredicion.habitacion.admin');
 
-// DELETE
+// GET
 Route::get('/admin/eliminar/habitacion/{id}', [HabitacionController::class, 'eliminarHabitacion']) -> name('eliminar.habitacion.admin');
+
+//DELETE
+Route::post('/admin/confirmar/eliminar/habitacion/{id}', [HabitacionController::class, 'confirmarEliminarHabitacion']) -> name('confirmareliminar.habitacion.admin');
 
 
 // ***USUARIOS***

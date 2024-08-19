@@ -118,15 +118,30 @@ class HabitacionController extends Controller
 
     public function eliminarHabitacion($id)
      {
+        $client = new Client();
+        try {
+            $response = $client->request('GET', 'http://localhost:8080/habitacion/buscar/' . $id);
+            $habitacion =  json_decode($response->getBody(), true);
+            if ($response->getStatusCode() == 200) {
+                return view('components/eliminarhabitacion_admin', ['habitacion' => $habitacion]);
+            }
+        } catch (\Exception $ex) {
+            return "Error al eliminar habitacion " . $ex;
+        }
+     }
+
+
+     public function confirmarEliminarHabitacion($id)
+     {
          $client = new Client();
          try {
              $response = $client->delete('http://localhost:8080/habitacion/borrar/' . $id);
  
              if ($response->getStatusCode() == 200) {
-                 return "Habitacion Eliminada". redirect()->route('obtenerTodosHabitaciones');
+                 return "Habitación Eliminada". redirect()->route('ver.habitaciones.admin');
              }
          } catch (\Exception $ex) {
-             return "Error al eliminar habitacion " . $ex;
+             return "Error al eliminar habitación " . $ex;
          }
      }
 }
