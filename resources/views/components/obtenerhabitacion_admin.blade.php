@@ -91,7 +91,7 @@
                                         <td> {{ $habitacion['piso'] }} </td>
                                         <td> {{ $habitacion['precio_noche'] }} </td>
                                         <td>
-                                            <a href="{{ route('editar.habitacion.admin') }}"
+                                            <a href="{{ route('editar.habitacion.admin', ['id' => $habitacion['id']]) }}"
                                                 class="btn btn-warning btn-sm me-2">Editar</a>
 
                                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"

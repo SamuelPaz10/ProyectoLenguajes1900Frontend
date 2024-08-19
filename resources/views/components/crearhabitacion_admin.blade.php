@@ -81,7 +81,9 @@
 
                                 <div class="col-12">
                                     <label for="nombre" class="form-label">Tipo</label>
-                                    <input type="number" min="1" class="form-control" id="tipo" name="tipo">
+                                    <input type="text" class="form-control" id="tipo"
+                                        name="tipo">
+                                    {{-- <input type="number" min="1" class="form-control" id="tipo" name="tipo"> --}}
                                     {{-- <select class="form-select" aria-label="Default select example" name="tipo">
                                         <option value="1">Suite</option>
                                         <option value="2">Doble</option>
@@ -98,7 +100,9 @@
 
                                 <div class="col-12">
                                     <label for="piso" class="form-label">Piso</label>
-                                    <input type="number" min="1" class="form-control" id="piso" name="piso">
+                                    {{-- <input type="number" min="1" class="form-control" id="piso" name="piso"> --}}
+                                    <input type="text" class="form-control" id="piso"
+                                        name="piso">
                                 </div>
                                 <br>
 
@@ -111,7 +115,9 @@
 
                                 <div class="col-12">
                                     <label for="estado" class="form-label">Estado</label>
-                                    <input type="number" min="1" class="form-control" id="estado" name="estado">
+                                    <input type="text" class="form-control" id="estado"
+                                        name="estado">
+                                    {{-- <input type="number" min="1" class="form-control" id="estado" name="estado"> --}}
                                     {{-- <select class="form-select" aria-label="Default select example" name="estado">
                                         <option value="1">Disponible</option>
                                         <option value="2">Ocupado</option>

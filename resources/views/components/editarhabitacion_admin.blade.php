@@ -60,85 +60,81 @@
                 <div class="divider-custom-line"></div>
             </div>
 
-            <form action=" {{ route('guardaredicion.habitacion.admin') }} " method="GET">
-                <main class="flex-shrink-0">
 
+            <main class="flex-shrink-0">
 
-                    <div class="container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
 
-                        <div class="row">
-                            <div class="col-4">
+                        </div>
 
-                            </div>
-
-                            <div style="background-color: rgba(179, 238, 218, 0.63); border-radius:20px; padding:20px"
-                                class="col-4">
-                                
+                        <div style="background-color: rgba(179, 238, 218, 0.63); border-radius:20px; padding:20px"
+                            class="col-4">
+                            <form action=" {{ route('guardaredicion.habitacion.admin') }} " method="PUT">
+                                @csrf
+                                @method('PUT')
                                 <div class="col-12">
                                     <label for="clave" class="form-label">Código Habitación</label>
-                                    <input type="text" class="form-control" id="clave" name="clave" readonly>
+                                    <h3 class="text-white">Editar "{{ $habitacion['id'] }}"</h3>
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="clave" class="form-label">N° Habitación</label>
-                                    <input type="text" class="form-control" id="clave" name="clave">
+                                    <input type="text" name="numero" value="{{ $habitacion['numero'] }}"
+                                        class="form-control rounded-pill mx-3">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="nombre" class="form-label">Tipo</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="1">Suite</option>
-                                        <option value="2">Doble</option>
-                                        <option value="3">Sencilla</option>
-                                    </select>
+                                    <input type="text" name="tipo" value="{{ $habitacion['tipo'] }}"
+                                        class="form-control rounded-pill mx-3">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="descripcion" class="form-label">Descripción</label>
-                                    <input type="text" class="form-control" id="fecha_nacimiento"
-                                        name="fecha_nacimiento">
+                                    <input type="text" name="descripcion" value="{{ $habitacion['descripcion'] }}"
+                                        class="form-control rounded-pill mx-3">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="piso" class="form-label">Piso</label>
-                                    <input type="text" class="form-control" id="telefono" name="telefono"
-                                        readonly>
+                                    <input type="text" name="piso" value="{{ $habitacion['piso'] }}"
+                                        class="form-control rounded-pill mx-3">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
-                                    <label for="precio" class="form-label">Precio</label>
-                                    <input type="text" class="form-control" id="correo_electronico"
-                                        name="correo_electronico">
+                                    <label for="precio" class="form-label">Precio Noche</label>
+                                    <input type="text" name="precio_noche"
+                                        value="{{ $habitacion['precio_noche'] }}"
+                                        class="form-control rounded-pill mx-3">
                                 </div>
                                 <br>
 
                                 <div class="col-12">
                                     <label for="estado" class="form-label">Estado</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="1">Disponible</option>
-                                        <option value="2">Ocupado</option>
-                                        <option value="3">En mantenimiento</option>
-                                      </select>
+                                    <input type="text" name="estado" value="{{ $habitacion['estado'] }}"
+                                        class="form-control rounded-pill mx-3">
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-success btn-sm">ACTUALIZAR</button>
-                            </div>
+                            </form>
+                        </div>
 
-                            <div class="col-4">
-
-                            </div>
+                        <div class="col-4">
 
                         </div>
-                        
+
                     </div>
 
-                </main>
-            </form>
+                </div>
+
+            </main>
 
 
 
